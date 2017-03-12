@@ -8,10 +8,8 @@ namespace MissQuiz
     {
         private ControlForm mainForm = null;
 
-        private bool state = false;
         public Color c;
 
-        private Bitmap current = null;
         public QuizForm()
         {
             InitializeComponent();
