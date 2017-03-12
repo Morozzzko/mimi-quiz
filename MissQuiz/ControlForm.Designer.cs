@@ -613,7 +613,6 @@ namespace MissQuiz
             this.button49.Text = "test";
             this.button49.UseVisualStyleBackColor = true;
             this.button49.Visible = false;
-            this.button49.Click += new System.EventHandler(this.button49_Click);
             // 
             // Form1
             // 

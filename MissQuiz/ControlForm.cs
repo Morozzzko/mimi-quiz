@@ -30,15 +30,16 @@ namespace MissQuiz
             {
                 index = Convert.ToInt32(Regex.Replace(mc[0].Value, @"Text: (\d+)", "$1")) - 1;
             }
-            //String s = fld.quests[index].quiz;
 
             //open card
-            fld.quests[index].Visual = fld.quests[index].State;
+
+            Question question = (Question) fld.Questions[index];
+            question.isVisible = true;
 
             //get question
             /*child.label1.Text = fld.quests[index].quiz;*/
             //child.label1.BorderStyle = BorderStyle.FixedSingle;//= fld.Colors[(int)fld.quests[index].State];
-            child.c = fld.Colors[(int) fld.quests[index].State];
+            child.c = fld.Colors[(int) question.Difficulty];
 //             Graphics g = child.label1.CreateGraphics();
 //             g.DrawRectangle(new Pen(fld.Colors[(int)fld.quests[index].State],5.0f),0,0,child.label1.Width, child.label1.Height );
 
@@ -65,7 +66,8 @@ namespace MissQuiz
 
             for (int i = 0; i < 45; i++)
             {
-                fld.quests[i].Visual = fld.quests[i].State;
+                Question question = (Question) fld.Questions[i];
+                question.isVisible = true;
             }
 
             child.Refresh();
@@ -79,7 +81,8 @@ namespace MissQuiz
 
             for (int i = 0; i < 45; i++)
             {
-                fld.quests[i].Visual = Miss.Closed;
+                Question question = (Question) fld.Questions[i];
+                question.isVisible = false;
             }
 
             child.Refresh();
@@ -98,20 +101,16 @@ namespace MissQuiz
         private void button47_Click(object sender, EventArgs e)
         {
             //<FIXME>
-            label1.Text = fld.quests[ind].Text;
-            child.label1.Text = fld.quests[ind].Text;
+            Question question = (Question) fld.Questions[ind];
+            label1.Text = question.Text;
+            child.label1.Text = question.Text;
         }
 
         private void button48_Click(object sender, EventArgs e)
         {
             //<FIXME>
-            child.label1.Text = fld.quests[ind].Answer;
-        }
-
-        private void button49_Click(object sender, EventArgs e)
-        {
-            Form3 testform = new Form3();
-            testform.Show();
+            Question question = (Question)fld.Questions[ind];
+            child.label1.Text = question.Answer;
         }
     }
 }
