@@ -24,9 +24,11 @@ namespace MissQuiz
     public enum Difficulty
     {
         None,
-        Easy,
-        Medium,
-        Hard
+        Orange,
+        Green,
+        Cyan,
+        Pink,
+        Blue
     }
     
     public class Question
@@ -53,7 +55,14 @@ namespace MissQuiz
 
         public ArrayList Questions { get; private set; }
 
-        public Color[] Colors = { Color.LightGray, Color.Green, Color.Yellow, Color.Red };
+        public Color[] Colors = {
+            Color.LightGray,
+            Color.FromArgb(246, 106, 0), // #F66A00 / orange
+            Color.FromArgb(44, 218, 42), // #2CDA2A / green
+            Color.FromArgb(33, 198, 199), // #21C6C7 / cyan
+            Color.FromArgb(238, 56, 156), // #EE389C/ pink-ish
+            Color.FromArgb(69, 90, 180) // #455AB4 / blue-ish
+        };
 
         public Field()
         {
