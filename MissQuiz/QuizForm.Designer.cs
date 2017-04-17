@@ -33,6 +33,8 @@ namespace MissQuiz
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuizForm));
             this.label1 = new System.Windows.Forms.Label();
+            this.questionPicture = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.questionPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -45,18 +47,33 @@ namespace MissQuiz
             this.label1.TabIndex = 1;
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Form2
+            // questionPicture
+            // 
+            this.questionPicture.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.questionPicture.Location = new System.Drawing.Point(0, 0);
+            this.questionPicture.Name = "questionPicture";
+            this.questionPicture.Size = new System.Drawing.Size(1008, 730);
+            this.questionPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.questionPicture.TabIndex = 2;
+            this.questionPicture.TabStop = false;
+            this.questionPicture.Visible = false;
+            this.questionPicture.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // QuizForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 730);
+            this.Controls.Add(this.questionPicture);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form2";
+            this.Name = "QuizForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
+            this.Load += new System.EventHandler(this.QuizForm_Load);
             this.ResizeEnd += new System.EventHandler(this.Form2_ResizeEnd);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form2_Paint);
             this.Resize += new System.EventHandler(this.Form2_ResizeEnd);
+            ((System.ComponentModel.ISupportInitialize)(this.questionPicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -64,6 +81,6 @@ namespace MissQuiz
         #endregion
 
         public Label label1;
-
+        public PictureBox questionPicture;
     }
 }

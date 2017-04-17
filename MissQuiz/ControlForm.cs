@@ -56,6 +56,7 @@ namespace MissQuiz
             child.label1.Text = "";
             child.label1.BackColor = BackColor;
             child.c = Color.DarkGray;
+            child.questionPicture.Visible = false;
             child.Refresh();
         }
 
@@ -101,9 +102,19 @@ namespace MissQuiz
         private void button47_Click(object sender, EventArgs e)
         {
             //<FIXME>
+            // show question
             Question question = (Question) fld.Questions[ind];
-            label1.Text = question.Text;
-            child.label1.Text = question.Text;
+            if (question.Text[0] == '.') // image?
+            {
+                child.questionPicture.ImageLocation = question.Text;
+                child.questionPicture.Visible = true;
+            }
+            else
+            {
+
+                label1.Text = question.Text;
+                child.label1.Text = question.Text;
+            }
         }
 
         private void button48_Click(object sender, EventArgs e)
